@@ -3,7 +3,7 @@ name: Update JSON from Markdown
 on:
   push:
     paths:
-    - './src/data/channels.md'
+    - 'src/data/channels.md'
   workflow_dispatch:
 
 jobs:
@@ -101,10 +101,10 @@ jobs:
             return channels
         
         # Convert MD to JSON
-        channels_data = md_table_to_json('./src/data/channels.md')
+        channels_data = md_table_to_json('src/data/channels.md')
         
         # Write to channels.json
-        with open('./src/data/channels.json', 'w', encoding='utf-8') as json_file:
+        with open('src/data/channels.json', 'w', encoding='utf-8') as json_file:
             json.dump(channels_data, json_file, ensure_ascii=False, indent=2)
             
         print(f"Converted channels.md to channels.json - {len(channels_data)} channels processed")
@@ -117,7 +117,7 @@ jobs:
         
     - name: Commit changes
       run: |
-        git add ./src/data/channels.json
+        git add src/data/channels.json
         git diff --staged --quiet || git commit -m "Auto-update channels.json from channels.md"
         
     - name: Push changes
