@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Cybersecurity Channels</title>
+    <meta name="theme-color" content="#1e88e5">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1e88e5">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="icon" href="src/assets/icon.png" type="image/png">
+    <meta name="description" content="مخزن کانال‌های تلگرام مرتبط با امنیت سایبری">
+    <meta name="keywords" content="امنیت سایبری, تلگرام, کانال, هک, سایبری">
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="py-4 text-center position-relative">
+            <button id="languageButton" class="btn btn-outline-light language-btn position-absolute">
+                <i class="bi bi-globe me-1"></i> Language
+            </button>
+            <img src="src/assets/icon.png" alt="Logo" class="logo mb-3">
+            <h1 class="mb-3">مخزن کانال‌های تلگرام مرتبط با امنیت سایبری</h1>
+        </header>
+
+        <div class="action-row mb-4">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 mb-3 mb-md-0">
+                    <div class="search-container">
+                        <div class="input-group">
+                            <input type="text" id="searchInput" class="form-control" placeholder="جستجو بین کانال‌ها...">
+                            <span class="input-group-text"><i class="bi bi-search search-icon"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="action-buttons">
+                        <button id="editButton" class="btn btn-primary action-btn d-none">
+                            <span class="d-none d-sm-inline">ویرایش</span><span class="d-inline d-sm-none">ویرایش</span>
+                        </button>
+                        <button id="addChannelButton" class="btn btn-success action-btn d-none">
+                            <span class="d-none d-sm-inline">افزودن کانال جدید</span><span class="d-inline d-sm-none">افزودن کانال جدید</span>
+                        </button>
+                        <button id="saveButton" class="btn btn-primary action-btn d-none">
+                            <span class="d-none d-sm-inline">ثبت تغییرات</span><span class="d-inline d-sm-none">ثبت تغییرات</span>
+                        </button>
+                        <button id="cancelButton" class="btn btn-danger action-btn d-none">
+                            <span class="d-none d-sm-inline">انصراف</span><span class="d-inline d-sm-none">انصراف</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="table-responsive">
+                <table id="channelsTable" class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="col-name">نام کانال</th>
+                            <th class="col-link">لینک</th>
+                            <th class="col-status">وضعیت</th>
+                            <th class="col-tags">تگ‌ها</th>
+                            <th class="col-desc">توضیحات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Table content will be loaded dynamically -->
+                        <tr>
+                            <td colspan="5" class="text-center">در حال بارگذاری...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer class="mt-5 text-center py-4">
+            <div class="footer-content">
+                <div class="footer-buttons">
+                    <a href="https://github.com/mehrazino/awesome-tg-cybersec" target="_blank" class="btn btn-dark footer-btn">
+                        مشاهده در گیت‌هاب
+                    </a>
+                    <a href="#" class="btn btn-warning footer-btn">
+                        حمایت
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Add Channel Modal -->
+    <div class="modal fade" id="addChannelModal" tabindex="-1" aria-labelledby="addChannelModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title w-100 text-center" id="addChannelModalLabel">افزودن کانال جدید</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="addChannelForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="channelName" class="form-label">نام کانال <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="channelName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="channelLink" class="form-label">لینک <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="channelLink" required placeholder="https://t.me/... یا @username" dir="ltr">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label for="channelTags" class="form-label">تگ‌ها (اختیاری)</label>
+                                <input type="text" class="form-control" id="channelTags" placeholder="مثال: osint blue red" dir="ltr">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="channelDescription" class="form-label">توضیحات (اختیاری)</label>
+                            <textarea class="form-control" id="channelDescription" rows="2"></textarea>
+                        </div>
+                        <input type="hidden" id="channelStatus" value="Active">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">انصراف</button>
+                    <button type="button" class="btn btn-success" id="submitNewChannel">ثبت کانال</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tags Modal -->
+    <div class="modal fade" id="tagsModal" tabindex="-1" aria-labelledby="tagsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title w-100 text-center" id="tagsModalLabel">تگ‌های کانال</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="tagsContainer" class="tags-container">
+                        <!-- Tags will be loaded dynamically -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- دکمه بستن حذف شد -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Alert -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="errorToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto">خطا</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="errorToastBody">
+                خطایی رخ داده است.
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Alert -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <strong class="me-auto">موفقیت</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="successToastBody">
+                عملیات با موفقیت انجام شد.
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content support-modal-content">
+                <div class="modal-header support-modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title w-100 text-center" id="supportModalLabel">راه‌های حمایت</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="support-options">
+                        <button class="support-option-btn support-option-contribute" id="contributeBtn">
+                            مشارکت در به‌روز‌رسانی
+                        </button>
+                        <button class="support-option-btn support-option-star">
+                            ستاره در گیت‌هاب
+                        </button>
+                        <button class="support-option-btn support-option-feedback">
+                            ارسال بازخورد
+                        </button>
+                        <!-- Temporarily disabled -->
+                        <!--<button class="support-option-btn support-option-donate">
+                            حمایت مالی
+                        </button>-->
+                        <button class="support-option-btn support-option-sponsor">
+                            حمایت رسمی
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sponsorship Modal -->
+    <div class="modal fade" id="sponsorshipModal" tabindex="-1" aria-labelledby="sponsorshipModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header sponsorship-modal-header">
+                    <h5 class="modal-title" id="sponsorshipModalLabel">حمایت رسمی</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="sponsor-info">
+                        اگر کانال تلگرام دارید، می‌تونید با اسپانسر شدن، نام کانال خودتون رو در ردیف اول جدول و همچنین نام برندتون رو به عنوان حامی رسمی، در فوتر وبسایت در معرض نمایش قرار بدید.
+                    </p>
+                    <div class="text-center mt-4">
+                        <a href="https://t.me/your_username" target="_blank" class="btn sponsor-contact-btn">
+                            ارتباط با من
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Modal -->
+    <div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="languageModalLabel">Select Language</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="language-options">
+                        <button class="btn btn-outline-primary language-option mb-2" data-lang="fa">
+                            <span class="language-flag">🇮🇷</span> فارسی
+                        </button>
+                        <button class="btn btn-outline-primary language-option mb-2" data-lang="en">
+                            <span class="language-flag">🇺🇸</span> English
+                        </button>
+                        <button class="btn btn-outline-primary language-option mb-2" data-lang="ru">
+                            <span class="language-flag">🇷🇺</span> Русский
+                        </button>
+                        <button class="btn btn-outline-primary language-option mb-2" data-lang="zh">
+                            <span class="language-flag">🇨🇳</span> 中文
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="src/js/main.js"></script>
+</body>
+</html> 
