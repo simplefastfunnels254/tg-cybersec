@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contribute: 'مشارکت در به‌روزرسانی',
                 star: 'ستاره در گیت‌هاب',
                 feedback: 'ارسال بازخورد',
-                donate: 'حمایت مالی',
+                // donate: 'حمایت مالی',
                 sponsor: 'حمایت رسمی'
             },
             // Sponsorship modal translations
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contribute: 'Contribute to Updates',
                 star: 'Star on GitHub',
                 feedback: 'Send Feedback',
-                donate: 'Donate',
+                // donate: 'Donate',
                 sponsor: 'Become a Sponsor'
             },
             // Sponsorship modal translations
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contribute: 'Участвовать в обновлениях',
                 star: 'Поставить звезду на GitHub',
                 feedback: 'Отправить отзыв',
-                donate: 'Пожертвовать',
+                // donate: 'Пожертвовать',
                 sponsor: 'Стать спонсором'
             },
             // Sponsorship modal translations
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contribute: '参与更新',
                 star: '在 GitHub 上加星标',
                 feedback: '发送反馈',
-                donate: '捐赠',
+                // donate: '捐赠',
                 sponsor: '成为赞助商'
             },
             // Sponsorship modal translations
