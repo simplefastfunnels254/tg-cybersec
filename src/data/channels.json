@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "name": "مرکز تحقیقاتی APT IRAN",
+    "link": "https://t.me/APTIRAN",
+    "status": "Active",
+    "tags": [
+      "red",
+      "threat-intel",
+      "osint",
+      "news"
+    ],
+    "description": ""
+  },
+  {
+    "name": "RedTeam Security",
+    "link": "https://t.me/onhex_ir",
+    "status": "Active",
+    "tags": [
+      "red",
+      "exploit",
+      "reverse-engineering",
+      "bug-bounty"
+    ],
+    "description": ""
+  }
+]
