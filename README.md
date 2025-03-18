@@ -2,7 +2,9 @@
 
 [[English]](./READMEs/README-en.md) | [[Русский]](./READMEs/README-ru.md) | [[中文]](./READMEs/README-zh.md)
 
-[فهرستی](./src/data/channels.md) از کانال‌های تلگرامی مرتبط با حوزه امنیت سایبری.
+![LOGO](./src/assets/icon.png)
+
+### [فهرستی](https://mehrazino.github.io/tg-cybersec/) از کانال‌های تلگرامی مرتبط با حوزه امنیت سایبری.
 
 برای علاقه‌مندان، دانشجویان، پژوهش‌گران و متخصصان این حوزه (مخصوصاً فعالین Threat Intelligence و OSINT)
 
