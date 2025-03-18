@@ -203,17 +203,17 @@ document.addEventListener('DOMContentLoaded', function() {
         supportModal.hide();
         
         // Open GitHub contribution page in a new tab
-        window.open('https://github.com/mehrazino/awesome-tg-cybersec/blob/main/CONTRIBUTING.md', '_blank');
+        window.open('https://github.com/mehrazino/tg-cybersec/edit/master/src/data/channels.md', '_blank');
     });
     
     // Star on GitHub button event listener
     document.querySelector('.support-option-star').addEventListener('click', function() {
-        window.open('https://github.com/mehrazino/awesome-tg-cybersec/stargazers', '_blank');
+        window.open('https://github.com/mehrazino/tg-cybersec', '_blank');
     });
     
     // Feedback button event listener
     document.querySelector('.support-option-feedback').addEventListener('click', function() {
-        window.open('https://github.com/mehrazino/awesome-tg-cybersec/issues/new', '_blank');
+        window.open('https://github.com/mehrazino/tg-cybersec/issues/new', '_blank');
     });
     
     // Temporarily disabled
