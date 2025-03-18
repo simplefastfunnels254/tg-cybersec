@@ -12,6 +12,6 @@
 
 您可以：
 
-- 创建新的[Issue](https://github.com/mehrazino/awesome-tg-cybersec/issues/new)并提供频道信息。
+- 创建新的[Issue](https://github.com/mehrazino/tg-cybersec/issues/new)并提供频道信息。
 
 - 创建Pull Request并将频道信息添加到[channels.md](../src/data/channels.md)文件中。 

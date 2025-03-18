@@ -12,6 +12,6 @@
 
 Вы можете:
 
-- Создать новый [Issue](https://github.com/mehrazino/awesome-tg-cybersec/issues/new) и предоставить информацию о канале(ах).
+- Создать новый [Issue](https://github.com/mehrazino/tg-cybersec/issues/new) и предоставить информацию о канале(ах).
 
 - Создать Pull Request и добавить информацию о канале(ах) в файл [channels.md](../src/data/channels.md).
