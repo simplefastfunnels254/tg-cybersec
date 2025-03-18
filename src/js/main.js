@@ -314,13 +314,27 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.support-option-contribute').textContent = t.supportOptions.contribute;
         document.querySelector('.support-option-star').textContent = t.supportOptions.star;
         document.querySelector('.support-option-feedback').textContent = t.supportOptions.feedback;
-        document.querySelector('.support-option-donate').textContent = t.supportOptions.donate;
-        document.querySelector('.support-option-sponsor').textContent = t.supportOptions.sponsor;
+        // Fix: Only update donate button if it exists
+        const donateBtn = document.querySelector('.support-option-donate');
+        if (donateBtn && t.supportOptions.donate) {
+            donateBtn.textContent = t.supportOptions.donate;
+        }
+        // Fix: Ensure sponsor button is updated
+        const sponsorBtn = document.querySelector('.support-option-sponsor');
+        if (sponsorBtn && t.supportOptions.sponsor) {
+            sponsorBtn.textContent = t.supportOptions.sponsor;
+        }
         
         // Update sponsorship modal content
         document.getElementById('sponsorshipModalLabel').textContent = t.sponsorshipModalTitle;
-        document.querySelector('.sponsor-info').textContent = t.sponsorshipInfo;
-        document.querySelector('.sponsor-contact-btn').textContent = t.contactMe;
+        const sponsorInfo = document.querySelector('.sponsor-info');
+        if (sponsorInfo) {
+            sponsorInfo.textContent = t.sponsorshipInfo;
+        }
+        const contactBtn = document.querySelector('.sponsor-contact-btn');
+        if (contactBtn) {
+            contactBtn.textContent = t.contactMe;
+        }
         
         // Re-render the table to update status labels
         if (channelsData.length > 0) {
