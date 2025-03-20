@@ -2,7 +2,11 @@
 
 [[English]](README-en.md) | [[فارسی]](../README.md) | [[中文]](README-zh.md)
 
-[Список](../src/data/channels.md) Telegram-каналов, связанных с кибербезопасностью.
+[[Веб-страница]](https://mehrazino.github.io/tg-cybersec/) | [[Markdown таблица]](../src/data/channels.md)
+
+<div align="center">
+  <img src="../src/assets/icon.png" width="200" height="200" alt="Icon">
+</div>
 
 Для энтузиастов, студентов, исследователей и профессионалов в области кибербезопасности (особенно для специалистов по Threat Intelligence и OSINT).
 
