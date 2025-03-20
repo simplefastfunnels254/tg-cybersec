@@ -1,4 +1,4 @@
-## Telegram Cybersecurity Channels Repository
+## Telegram Cybersecurity Channels Repository 🛡️⚔️🔍
 
 [[فارسی]](../README.md) | [[Русский]](README-ru.md) | [[中文]](README-zh.md)
 
@@ -10,7 +10,7 @@
 
 For enthusiasts, students, researchers, and professionals in this field (especially those active in Threat Intelligence and OSINT).
 
-## Contributing
+## Contributing 🤝🔄
 
 We need your help to keep this repository up to date.
 
